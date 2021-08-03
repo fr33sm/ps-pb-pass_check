@@ -5,4 +5,23 @@
 # Если пароль состоит только из цифр, то должно выдаваться сообщение: "Ваш пароль состоит только из цифр";
 # В противном случае должно выдаваться сообщение: "Требования к паролю соблюдены".
 # Реализовать программу только с использованием конструкции try/except.
+import os
 
+# Чистим экран перед стартом программы
+def clear_screen():
+    os.system('clear' if os.name =='posix' else 'cls')
+clear_screen()
+
+
+
+while True:
+    try:
+        passwd_input = input('Введите пароль: ')
+        passwd_check_empty = 1 / len(passwd_input)
+        passwd_check_numbers = int(passwd_input)
+        print('Ваш пароль состоит только из цифр')
+    except ZeroDivisionError:
+        print('Вы ввели пустой пароль')
+    except:
+        print('Требования к паролю соблюдены')
+        break
